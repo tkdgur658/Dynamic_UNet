@@ -22,7 +22,7 @@ class SplConv2d(nn.Module):
         x1=self.c1(x1);x2=self.c2(x2);x3=self.c3(x3);x4=self.c4(x4);
         return torch.cat([x1, x2, x3, x4], dim=1)
     
-class UNet_Pyramid_Res_Bottleenck(nn.Module):
+class UNet_Pyramid_Res_Bottleneck(nn.Module):
     def __init__(self, in_channels=1, out_channels=1, init_features=32):
         super(UNet_Pyramid_Res_Bottleneck, self).__init__()
 
