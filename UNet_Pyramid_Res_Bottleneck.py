@@ -24,7 +24,7 @@ class SplConv2d(nn.Module):
     
 class UNet_Pyramid_Res_Bottleenck(nn.Module):
     def __init__(self, in_channels=1, out_channels=1, init_features=32):
-        super(UNet_Pyramid_Res_Bottleenck, self).__init__()
+        super(UNet_Pyramid_Res_Bottleneck, self).__init__()
 
         features = init_features
         self.encoder1 = nn.Sequential(nn.Conv2d(
@@ -115,4 +115,4 @@ class UNet_Pyramid_Res_Bottleenck(nn.Module):
                             features,
                             features, 1), nn.BatchNorm2d(num_features=features),nn.ReLU(inplace=True),)
 # import pytorch_model_summary
-# print(pytorch_model_summary.summary(UNet_Pyramid_Res_Bottleenck(1),torch.rand((1, 1, 512, 512))))
+# print(pytorch_model_summary.summary(UNet_Pyramid_Res_Bottleneck(1),torch.rand((1, 1, 512, 512))))
