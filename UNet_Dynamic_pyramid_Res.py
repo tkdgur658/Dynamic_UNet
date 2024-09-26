@@ -48,9 +48,9 @@ class DynamicSplConv2d(nn.Module):
         # Concatenate the results along the channel dimension
         return torch.cat(conv_results, dim=1)
     
-class UNet_Dynamic_pyramid_Res(nn.Module):
-    def __init__(self, in_channels=1, out_channels=1, init_features=32, num_splits=4):
-        super(UNet_Dynamic_pyramid_Res, self).__init__()
+class UNet_DynamicPyramid_Res(nn.Module):
+    def __init__(self, in_channels=1, out_channels=1, num_splits=4, init_features=32):
+        super(UNet_DynamicPyramid_Res, self).__init__()
         self.num_splits = num_splits
         features = init_features
         self.encoder1 = nn.Sequential(nn.Conv2d(
@@ -136,4 +136,4 @@ class UNet_Dynamic_pyramid_Res(nn.Module):
                             in_channels=features,
                             out_channels=features, num_splits=self.num_splits), nn.BatchNorm2d(num_features=features),nn.ReLU(inplace=True),)
 # import pytorch_model_summary
-# print(pytorch_model_summary.summary(UNet_Dynamic_pyramid_Res(1),torch.rand((1, 1, 512, 512))))
+# print(pytorch_model_summary.summary(UNet_DynamicPyramid_Res(1),torch.rand((1, 1, 512, 512))))
